@@ -3,7 +3,7 @@ const connection = require("../config/connection.js");
 let orm = {
 
     selectAll: function(tableInput, cb) {
-        connection.query("SELECT * FROM ?", [tableInput], function(err,result) {
+        connection.query("SELECT * FROM ??;", tableInput, function(err,result) {
             if (err) throw err;
 
              cb(result);
@@ -18,8 +18,11 @@ let orm = {
         });
     },
 
-    updateOne: function(tableInput, cols, ids) {
-        connection.query("UPDATE ? SET ?? WHERE ??", [tableInput, cols, ids], function(err, result) {
+    updateOne: function(tableInput, cols, ids, cb) {
+        console.log(tableInput);
+        console.log(cols);
+        console.log(ids);
+        connection.query("UPDATE ?? SET ?? WHERE ??", [tableInput, cols, ids], function(err, result) {
             if (err) throw err;
 
             cb(result);

@@ -15,7 +15,8 @@ let burger = {
     },
 
     updateOne: function(burgerId, cb) {
-        orm.updateOne("burgers", {devoured: True}, {id: burgerId}, function(res) {
+        burgerId = parseInt(burgerId);
+        orm.updateOne("burgers", "devoured = 1", `id = ${burgerId}`, function(res) {
             cb(res);
         });
     }
