@@ -10,19 +10,19 @@ let orm = {
         });
     },
 
-    insertOne: function(tableInput, cols, name, state, cb) {
-        connection.query("INSERT INTO ? (??) VALUES (??,??)", [tableInput, cols, name, state], function(err, result) {
+    insertOne: function(tableInput, col1, col2, name, state, cb) {
+        connection.query("INSERT INTO ?? (??, ??) VALUES (?,?);", [tableInput, col1, col2, name, state], function(err, result) {
             if (err) throw err;
 
             cb(result);
         });
     },
 
-    updateOne: function(tableInput, cols, ids, cb) {
-        console.log(tableInput);
-        console.log(cols);
-        console.log(ids);
-        connection.query("UPDATE ?? SET ?? WHERE ??", [tableInput, cols, ids], function(err, result) {
+    updateOne: function(tableInput, id, cb) {
+        //console.log(tableInput);
+        //console.log(cols);
+        //console.log(ids);
+        connection.query("UPDATE ?? SET devoured = 1 WHERE id = ?;", [tableInput, id], function(err, result) {
             if (err) throw err;
 
             cb(result);

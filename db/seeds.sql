@@ -1,7 +1,7 @@
 USE burgers_db;
 
 INSERT INTO burgers (burger_name, devoured)
-    VALUES  ("Cheesburger", False),
+    VALUES  ("Cheeseburger", False),
             ("Black Bean Burger", False),
             ("Mushroom Swiss Burger", False),
             ("Loco Moco", False),
